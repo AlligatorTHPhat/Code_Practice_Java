@@ -10,11 +10,11 @@ public class Main {
         int day = scanner.nextInt();
         int month = scanner.nextInt();
         int year = scanner.nextInt();
-        
-        if (year < 1900 || month < 1 || month > 12) {
+
+        if(month < 1 || month > 12) {
             System.out.print("NO");
             return;
-        } 
+        }
         
         int max_day;
         switch(month) {
@@ -23,17 +23,18 @@ public class Main {
                 break;
             case 4: case 6: case 9: case 11:
                 max_day = 30;
+                break;
             case 2:
-                max_day = check_leap_year(year) ? 29 : 28;
+                max_day = (check_leap_year(year) ? 29 : 28); 
                 break;
             default:
                 max_day = 0;
+                break;
         }
         
-        if (day >= 1 && day <= max_day) {
+        if(1 <= day && day <= max_day && year >= 1900) {
             System.out.print("YES"); return;
-        } else {
-            System.out.print("NO"); return;
-        }
+        } else { System.out.print("NO"); return; }
+        
     }
 }
